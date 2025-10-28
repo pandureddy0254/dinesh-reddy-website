@@ -4,347 +4,196 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EyeCare Clinic | Dr. Dinesh Reddy, Eye Specialist</title>
-  <meta name="description" content="Comprehensive eye care—eye exams, spectacles, contact lenses, cataract & LASIK counselling. Book an appointment with Dr. Dinesh Reddy." />
-  <meta name="keywords" content="eye doctor, ophthalmologist, optometrist, eye clinic, LASIK, cataract, glasses, contact lenses" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%2300a3a3'/><circle cx='32' cy='32' r='16' fill='white'/><circle cx='32' cy='32' r='8' fill='%23006666'/></svg>">
-  
-  <!-- Basic reset + fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+  <meta name="description" content="Comprehensive eye care in Kurnool — eye exams, spectacles, contact lenses, cataract & LASIK counselling. Book an appointment with Dr. Dinesh Reddy." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><radialGradient id='g' cx='32' cy='32' r='30'><stop offset='0' stop-color='%23a7f3d0'/><stop offset='1' stop-color='%2306b6d4'/></radialGradient></defs><circle cx='32' cy='32' r='30' fill='url(%23g)'/><circle cx='32' cy='32' r='16' fill='white'/><circle cx='32' cy='32' r='8' fill='%23015563'/></svg>">
   <style>
-    :root{
-      --bg:#f7fafb; --text:#0f172a; --muted:#475569; --brand:#06b6d4; --brand-d:#0e7490; --card:#ffffff; --ring:rgba(6,182,212,.35);
-    }
+    :root{--bg:#f7fafb;--text:#0f172a;--muted:#475569;--brand:#0ea5e9;--brand2:#06b6d4;--card:#fff;--ring:rgba(14,165,233,.25)}
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);}
-    a{color:var(--brand);text-decoration:none}
-    img{max-width:100%;display:block}
+    body{margin:0;font-family:system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;background:var(--bg);color:var(--text)}
+    a{color:var(--brand)}
+    img{max-width:100%;display:block;background:#e5eef4}
 
-    /* Layout */
-    .container{max-width:1100px;margin:0 auto;padding:0 1.25rem}
-    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:blur(8px);border-bottom:1px solid #e5eef4}
+    .container{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+    header{position:sticky;top:0;background:#ffffffd9;backdrop-filter:blur(8px);border-bottom:1px solid #e5eef4;z-index:40}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
     .brand{display:flex;gap:.6rem;align-items:center;font-weight:800}
-    .brand .logo{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--brand),#67e8f9)}
-    .brand span{letter-spacing:.3px}
+    .logo{width:36px;height:36px;border-radius:50%;background:conic-gradient(from 0deg,var(--brand),var(--brand2))}
     .menu{display:flex;gap:1rem;align-items:center}
-    .menu a{color:var(--muted);font-weight:600}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--brand);color:white;font-weight:700;padding:.7rem 1rem;border-radius:12px;border:0;cursor:pointer;box-shadow:0 6px 16px var(--ring)}
-    .btn:hover{background:var(--brand-d)}
-    .btn.secondary{background:#0ea5e9}
-    .hamburger{display:none;background:transparent;border:0;font-size:1.5rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border-radius:12px;border:0;background:var(--brand);color:#fff;font-weight:700;box-shadow:0 6px 18px var(--ring)}
+    .btn:hover{filter:brightness(.95)}
 
-    /* Hero */
-    .hero{position:relative}
-    .hero img.bg{width:100%;height:54vh;object-fit:cover;filter:contrast(1.05) saturate(1.05) brightness(.95)}
-    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.55),rgba(15,23,42,.15))}
-    .hero .content{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:white;padding:1rem}
-    .hero h1{font-size:clamp(2rem,5vw,3.25rem);margin:.25rem 0 .5rem}
-    .hero p{font-size:clamp(1rem,2.5vw,1.2rem);opacity:.95;max-width:780px;margin:0 auto 1.2rem}
-    .badges{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
-    .badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:.4rem .7rem;border-radius:999px;font-weight:600}
+    .hero{position:relative;overflow:hidden}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:center;padding:2.5rem 0}
+    .hero h1{font-size:clamp(2rem,4.5vw,3rem);margin:.25rem 0 .5rem}
+    .hero p{color:var(--muted);font-size:1.05rem}
+    .hero figure{margin:0;border-radius:22px;overflow:hidden;border:1px solid #e5eef4;box-shadow:0 10px 28px rgba(15,23,42,.08)}
 
-    /* Sections */
-    section{padding:3.5rem 0}
-    .section-title{font-size:1.8rem;margin:0 0 1.25rem}
-    .grid{display:grid;gap:1.25rem}
+    section{padding:3rem 0}
+    .section-title{font-size:1.8rem;margin:0 0 1rem}
+    .grid{display:grid;gap:1rem}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .card{background:var(--card);border:1px solid #e5eef4;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(15,23,42,.05)}
     .card .body{padding:1rem}
-    .eyebrow{font-size:.8rem;color:var(--brand);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .eyebrow{font-size:.8rem;color:var(--brand2);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
     .muted{color:var(--muted)}
 
-    /* Services */
-    .service-icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#e0f2fe,#cffafe);border:1px solid #e5eef4;margin-bottom:.75rem}
+    .doc{display:grid;grid-template-columns:.9fr 1.1fr;gap:1.5rem;align-items:center}
 
-    /* Doctor */
-    .doc{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
-    .doc figure{margin:0}
-    .doc .img-wrap{border-radius:22px;overflow:hidden;border:1px solid #e5eef4;box-shadow:0 10px 24px rgba(15,23,42,.08)}
+    .gallery{columns:3 260px;column-gap:1rem}
+    .gallery img{margin-bottom:1rem;border-radius:14px;border:1px solid #e5eef4}
 
-    /* Gallery */
-    .masonry{columns:3 260px;column-gap:1rem}
-    .masonry img{margin-bottom:1rem;border-radius:14px;border:1px solid #e5eef4}
-
-    /* CTA */
     .cta{background:linear-gradient(120deg,#ecfeff,#f0f9ff)}
-    .cta .panel{display:grid;grid-template-columns:1.4fr .6fr;gap:1.25rem;align-items:center}
-    .cta .panel .box{background:white;border:1px solid #e5eef4;border-radius:18px;padding:1rem;box-shadow:0 10px 24px rgba(15,23,42,.06)}
+    footer{padding:2rem 0;border-top:1px solid #e5eef4}
 
-    /* Footer */
-    footer{padding:2.5rem 0;border-top:1px solid #e5eef4;background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,1))}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5rem}
-    .small{font-size:.9rem}
-
-    /* Responsive */
     @media (max-width: 900px){
+      .hero-inner,.doc{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr 1fr}
-      .doc{grid-template-columns:1fr}
-      .cta .panel{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr 1fr}
     }
     @media (max-width: 640px){
-      .menu{display:none;position:absolute;right:1.25rem;top:64px;background:white;border:1px solid #e5eef4;border-radius:14px;box-shadow:0 10px 24px rgba(15,23,42,.1);padding:.5rem}
-      .menu.open{display:flex;flex-direction:column;gap:.5rem;min-width:200px}
-      .hamburger{display:block}
       .grid-3{grid-template-columns:1fr}
     }
-
-    /* Utilities */
-    .pill{display:inline-flex;align-items:center;gap:.4rem;border:1px dashed var(--brand);color:var(--brand-d);padding:.35rem .6rem;border-radius:999px;font-weight:700}
-    .chip{display:inline-flex;align-items:center;gap:.4rem;background:#e2f6f8;color:#075985;padding:.35rem .6rem;border-radius:999px;font-weight:700}
-    .kpi{display:flex;gap:1rem;flex-wrap:wrap}
-    .kpi .item{background:#ffffff;border:1px solid #e5eef4;border-radius:12px;padding:.6rem .8rem;font-weight:800}
   </style>
-
-  <!-- LocalBusiness (MedicalBusiness / Optometrist) Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Optician",
-    "name": "EyeCare Clinic",
-    "image": [
-      "https://images.unsplash.com/photo-1581093458791-9d09a5cb1a3b?q=80&w=1200&auto=format&fit=crop"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "123 Vision Avenue",
-      "addressLocality": "Your City",
-      "addressRegion": "Your State",
-      "postalCode": "000000",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "28.6139",
-      "longitude": "77.2090"
-    },
-    "url": "https://yourusername.github.io/eyecare",
-    "telephone": "+91-90000-00000",
-    "openingHours": "Mo-Sa 10:00-19:00"
-  }
-  </script>
 </head>
-
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <span>EyeCare Clinic</span>
-      </div>
-      <nav>
-        <button class="hamburger" aria-label="Open Menu" onclick="toggleMenu()">☰</button>
-        <div class="menu" id="menu">
-          <a href="#services">Services</a>
-          <a href="#doctor">Doctor</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#hours">Hours</a>
-          <a href="#contact">Contact</a>
-          <a class="btn" href="#book">Book Now</a>
-        </div>
+      <div class="brand"><div class="logo" aria-hidden="true"></div><span>EyeCare Clinic</span></div>
+      <nav class="menu">
+        <a href="#services">Services</a>
+        <a href="#doctor">Doctor</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#hours">Hours</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#book">Book</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero" aria-label="Hero">
-      <img class="bg" src="https://images.unsplash.com/photo-1579154204601-01588f351e83?q=80&w=1600&auto=format&fit=crop" alt="Eye clinic and slit lamp" />
-      <div class="overlay"></div>
-      <div class="content container">
+    <!-- HERO: uses LOCAL image only -->
+    <section class="hero">
+      <div class="container hero-inner">
         <div>
-          <span class="badge">Trusted Eye Care • Since 2010</span>
+          <div class="eyebrow">Trusted Eye Care in Kurnool</div>
           <h1>Sharper Vision, Healthier Eyes</h1>
-          <p>Complete eye examinations, spectacles & contact lenses, children’s eye care, cataract & LASIK counselling—delivered with empathy and precision.</p>
-          <div class="badges" role="list" aria-label="Highlights">
-            <span class="badge">ISO‑certified clinic</span>
-            <span class="badge">Computerized Eye Testing</span>
-            <span class="badge">Cashless Insurance Help</span>
-          </div>
-          <div style="margin-top:1.2rem">
+          <p>Complete eye examinations, spectacles & contact lenses, children’s eye care, cataract & LASIK counselling—by Dr. Dinesh Reddy.</p>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem">
             <a class="btn" href="#book">Book Appointment</a>
-            <a class="btn secondary" href="tel:+919000000000">Call: +91 90000 00000</a>
+            <a class="btn" style="background:#10b981" href="tel:+919000000000">Call Now</a>
           </div>
         </div>
+        <figure>
+          <img src="images/dr-dinesh-2.jpg" alt="Dr. Dinesh Reddy at clinic" loading="eager" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 500\'><rect width=\'100%\' height=\'100%\' fill=\'%23e5eef4\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23678\' font-family=\'Arial\' font-size=\'28\'>Hero image missing — add images/dr-dinesh-2.jpg</text></svg>'"/>
+        </figure>
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="container" aria-labelledby="services-title">
-      <h2 id="services-title" class="section-title">Services</h2>
+    <!-- SERVICES: SVG icons only (no external images) -->
+    <section id="services" class="container">
+      <h2 class="section-title">Services</h2>
       <div class="grid grid-3">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1579154204601-1d4a2c9d5dbd?q=80&w=1200&auto=format&fit=crop" alt="Eye exam equipment" />
-          <div class="body">
-            <div class="service-icon" aria-hidden="true">👁️</div>
-            <h3>Comprehensive Eye Exams</h3>
-            <p class="muted">Refraction, slit‑lamp, IOP, retina evaluation with modern diagnostics for adults & kids.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="Eyeglasses on display" />
-          <div class="body">
-            <div class="service-icon" aria-hidden="true">👓</div>
-            <h3>Spectacles & Lenses</h3>
-            <p class="muted">Blue‑filter, progressive, anti‑glare lenses with stylish frames. Same‑day delivery options.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1512106375591-e2a3719d56c5?q=80&w=1200&auto=format&fit=crop" alt="Contact lenses case and solution" />
-          <div class="body">
-            <div class="service-icon" aria-hidden="true">🟦</div>
-            <h3>Contact Lenses</h3>
-            <p class="muted">Daily/Monthly disposables, toric & multifocal lenses with personalized fitting & training.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1581087174600-6e8b8b5f8f88?q=80&w=1200&auto=format&fit=crop" alt="LASIK consultation" />
-          <div class="body">
-            <div class="service-icon" aria-hidden="true">🔬</div>
-            <h3>LASIK & Cataract Counselling</h3>
-            <p class="muted">Eligibility checks, second opinions, and pre/post‑op guidance with partner hospitals.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop" alt="Pediatric eye care" />
-          <div class="body">
-            <div class="service-icon" aria-hidden="true">🧒</div>
-            <h3>Children’s Eye Care</h3>
-            <p class="muted">Lazy eye (amblyopia) screening, myopia control plans, school vision tests.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1557180295-76eee20ae8aa?q=80&w=1200&auto=format&fit=crop" alt="Dry eye treatment" />
-          <div class="body">
-            <div class="service-icon" aria-hidden="true">💧</div>
-            <h3>Dry Eye & Computer Vision</h3>
-            <p class="muted">Relief plans for screen fatigue—lubricants, warm compress routines, ergonomics.</p>
-          </div>
-        </article>
+        <article class="card"><div class="body"><h3>Comprehensive Eye Exams</h3><p class="muted">Refraction, slit‑lamp, IOP, retina evaluation with modern diagnostics for adults & kids.</p></div></article>
+        <article class="card"><div class="body"><h3>Spectacles & Lenses</h3><p class="muted">Blue‑filter, progressive, anti‑glare lenses with stylish frames.</p></div></article>
+        <article class="card"><div class="body"><h3>Contact Lenses</h3><p class="muted">Daily/Monthly disposables, toric & multifocal lenses with personalized fitting.</p></div></article>
+        <article class="card"><div class="body"><h3>LASIK & Cataract Counselling</h3><p class="muted">Eligibility checks, second opinions, and pre/post‑op guidance with partner hospitals.</p></div></article>
+        <article class="card"><div class="body"><h3>Children’s Eye Care</h3><p class="muted">Amblyopia screening, myopia control plans, school vision tests.</p></div></article>
+        <article class="card"><div class="body"><h3>Dry Eye & Computer Vision</h3><p class="muted">Relief plans for screen fatigue—lubricants, warm compress routines, ergonomics.</p></div></article>
       </div>
     </section>
 
-    <!-- Doctor -->
-    <section id="doctor" class="container doc" aria-labelledby="doctor-title">
-      <figure class="img-wrap">
-        <img src="images/dr-dinesh-1.jpg" alt="Dr. Dinesh Reddy, Ophthalmologist" />
-      </figure>
+    <!-- DOCTOR -->
+    <section id="doctor" class="container doc">
+      <figure class="card" style="margin:0"><img src="images/dr-dinesh-1.jpg" alt="Dr. Dinesh Reddy, Ophthalmologist" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 500\'><rect width=\'100%\' height=\'100%\' fill=\'%23e5eef4\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23678\' font-family=\'Arial\' font-size=\'28\'>Doctor photo missing — add images/dr-dinesh-1.jpg</text></svg>'"/></figure>
       <div>
         <div class="eyebrow">Meet your doctor</div>
-        <h2 id="doctor-title" class="section-title">Dr. Dinesh Reddy — MBBS, MS (Ophthalmology), FICS</h2>
-        <p class="muted">MS at Narayana Medical College, Nellore. Present Assistant Professor at Viswabharathi Medical College, Kurnool. Compassionate comprehensive eye care for all ages.</p>>
-          <div class="item">10k+ Patients</div>
-          <div class="item">1200+ Surgeries Assisted</div>
-          <div class="item">4.9★ Reviews</div>
-        </div>
-        <div style="margin-top:1rem">
-          <span class="pill">Medical Registration: ABC/1234</span>
-        </div>
+        <h2 class="section-title">Dr. Dinesh Reddy — MBBS, MS (Ophthalmology), FICS</h2>
+        <p class="muted">MS at Narayana Medical College, Nellore. Present Assistant Professor at Viswabharathi Medical College, Kurnool. Compassionate comprehensive eye care for all ages.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.75rem"><span class="card" style="padding:.5rem .8rem;font-weight:800">10k+ Patients</span><span class="card" style="padding:.5rem .8rem;font-weight:800">1200+ Surgeries Assisted</span><span class="card" style="padding:.5rem .8rem;font-weight:800">4.9★ Reviews</span></div>
       </div>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="container" aria-labelledby="gallery-title">
-      <h2 id="gallery-title" class="section-title">Clinic Gallery</h2>
-      <div class="masonry">
-        <img src="images/dr-dinesh-1.jpg" alt="Dr. Dinesh Reddy at the slit lamp" />
-        <img src="images/dr-dinesh-2.jpg" alt="Dr. Dinesh Reddy in white coat" />
-        <img src="https://images.unsplash.com/photo-1580281657526-cfe5a4d6b0f9?q=80&w=1000&auto=format&fit=crop" alt="Optical store frames" />
-        <img src="https://images.unsplash.com/photo-1551281044-8b5e97d1d1b7?q=80&w=1000&auto=format&fit=crop" alt="Waiting area" />
-        <img src="https://images.unsplash.com/photo-1551281044-2a3345c2c3f4?q=80&w=1000&auto=format&fit=crop" alt="Diagnostics room" />
+    <!-- GALLERY: LOCAL images only -->
+    <section id="gallery" class="container">
+      <h2 class="section-title">Clinic Gallery</h2>
+      <div class="gallery">
+        <img src="images/dr-dinesh-1.jpg" alt="At the slit lamp" loading="lazy" onerror="this.style.display='none'"/>
+        <img src="images/dr-dinesh-2.jpg" alt="In white coat" loading="lazy" onerror="this.style.display='none'"/>
       </div>
+      <p class="muted" style="margin-top:.5rem">Tip: you can add more photos in the <code>images/</code> folder and reference them here.</p>
     </section>
 
-    <!-- Hours & Location -->
-    <section id="hours" class="container" aria-labelledby="hours-title">
-      <h2 id="hours-title" class="section-title">Hours & Location</h2>
+    <!-- HOURS & LOCATION: no map iframe (no key needed) -->
+    <section id="hours" class="container">
+      <h2 class="section-title">Hours & Location</h2>
       <div class="grid" style="grid-template-columns:1.1fr .9fr">
-        <div class="card">
-          <div class="body">
-            <h3>Business Hours</h3>
-            <p class="muted">Mon–Sun: 9:00 AM – 8:00 PM</p>
-            <h3 style="margin-top:1rem">Address</h3>
-            <p class="muted">Plot No. 113, Shop No. 3,
-            <p>
-              <a class="chip" href="https://maps.google.com/?q=EyeCare%20Clinic%20123%20Vision%20Avenue" target="_blank" rel="noopener">📍 Open in Google Maps</a>
-            </p>
-          </div>
-        </div>
-        <div class="card" aria-hidden="true">
-          <iframe title="Map" style="border:0;width:100%;height:300px" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA-REPLACE-WITH-YOUR-KEY&q=EyeCare+Clinic+Your+City"></iframe>
-        </div>
+        <div class="card"><div class="body">
+          <h3>Business Hours</h3>
+          <p class="muted">Mon–Sun: 9:00 AM – 8:00 PM</p>
+          <h3 style="margin-top:1rem">Address</h3>
+          <p class="muted">Plot No. 113, Shop No. 3, P.K.R. Complex,<br>Ulchala - Kurnool Rd, Kurnool, Andhra Pradesh 518467</p>
+          <p><a class="btn" href="https://maps.google.com/?q=Plot%20No.%20113%2C%20Shop%20No.%203%2C%20P.K.R.%20Complex%2C%20Ulchala%20-%20Kurnool%20Rd%2C%20Kurnool%2C%20Andhra%20Pradesh%20518467" target="_blank" rel="noopener">📍 Open in Google Maps</a></p>
+        </div></div>
+        <div class="card" aria-hidden="true"><div class="body"><div style="height:260px;display:grid;place-items:center;color:#0f172a66">Map preview (click button to open)</div></div></div>
       </div>
     </section>
 
-    <!-- Booking CTA -->
-    <section id="book" class="cta" aria-labelledby="book-title">
-      <div class="container panel">
+    <!-- BOOKING CTA -->
+    <section id="book" class="cta">
+      <div class="container" style="display:grid;grid-template-columns:1.4fr .6fr;gap:1rem;align-items:center">
         <div>
           <div class="eyebrow">Book your visit</div>
-          <h2 id="book-title" class="section-title">Ready to see better?</h2>
+          <h2 class="section-title">Ready to see better?</h2>
           <p class="muted">Tap a button to schedule by call or WhatsApp. You can also email us with your preferred date & time.</p>
           <div style="display:flex;gap:.75rem;flex-wrap:wrap">
             <a class="btn" href="tel:+919000000000">📞 Call Now</a>
-            <a class="btn secondary" href="https://wa.me/919000000000?text=Hi%20EyeCare%20Clinic%2C%20I%27d%20like%20to%20book%20an%20appointment">💬 WhatsApp</a>
+            <a class="btn" style="background:#3ddc84" href="https://wa.me/919000000000?text=Hi%20Dr.%20Dinesh%20Reddy%2C%20I%27d%20like%20to%20book%20an%20appointment">💬 WhatsApp</a>
             <a class="btn" style="background:#10b981" href="mailto:hello@eyecareclinic.example?subject=Appointment%20Request&body=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20on%20[date]%20at%20[time].">✉️ Email</a>
           </div>
         </div>
-        <div class="box">
-          <h3 style="margin-top:0">What to bring</h3>
-          <ul>
+        <div class="card"><div class="body">
+          <h3 style="margin:0 0 .5rem 0">What to bring</h3>
+          <ul style="margin:.25rem 0 0 1rem">
             <li>Current glasses or contact lens details</li>
             <li>Previous eye prescriptions, if available</li>
             <li>Insurance card / ID proof</li>
           </ul>
-          <h3>Fees</h3>
-          <p class="muted">Eye exam: ₹500 • Contact lens fitting: ₹800 • Follow‑up: ₹300</p>
-        </div>
+        </div></div>
       </div>
     </section>
   </main>
 
   <footer id="contact">
-    <div class="container footer-grid">
-      <div>
-        <div class="brand" style="margin-bottom:.5rem">
-          <div class="logo" aria-hidden="true"></div>
-          <span>EyeCare Clinic</span>
-        </div>
-        <p class="small muted">Holistic vision care for families—exam, lenses, paediatric vision, and surgical counselling.</p>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <p class="small"><strong>Phone:</strong> <a href="tel:+919000000000">+91 90000 00000</a><br>
-        <strong>Email:</strong> <a href="mailto:hello@eyecareclinic.example">hello@eyecareclinic.example</a></p>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <p class="small"><a href="#">Instagram</a> • <a href="#">Facebook</a> • <a href="#">Google Reviews</a></p>
-      </div>
+    <div class="container" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.25rem">
+      <div><div class="brand" style="margin-bottom:.5rem"><div class="logo"></div><span>EyeCare Clinic</span></div><p class="muted">Holistic vision care for families—exam, lenses, paediatric vision, and surgical counselling.</p></div>
+      <div><h4>Contact</h4><p class="muted"><strong>Phone:</strong> <a href="tel:+919000000000">+91 90000 00000</a><br><strong>Email:</strong> <a href="mailto:hello@eyecareclinic.example">hello@eyecareclinic.example</a></p></div>
+      <div><h4>Follow</h4><p class="muted"><a href="#">Instagram</a> • <a href="#">Facebook</a> • <a href="#">Google Reviews</a></p></div>
     </div>
-    <div class="container" style="margin-top:1rem">
-      <p class="small muted">© <span id="year"></span> EyeCare Clinic. All rights reserved.</p>
-    </div>
+    <div class="container" style="margin-top:1rem"><p class="muted">© <span id="year"></span> EyeCare Clinic — Dr. Dinesh Reddy. All rights reserved.</p></div>
   </footer>
 
   <script>
-    // Mobile menu toggle
-    function toggleMenu(){
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('open');
-    }
-    // Close menu on link click (mobile)
-    document.addEventListener('click', (e)=>{
-      if(e.target.closest('#menu a')){
-        document.getElementById('menu').classList.remove('open');
-      }
-    });
-    // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- SEO Schema (uses only local images) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Optician",
+    "name": "EyeCare Clinic — Dr. Dinesh Reddy",
+    "image": ["images/dr-dinesh-1.jpg"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot No. 113, Shop No. 3, P.K.R. Complex, Ulchala - Kurnool Rd",
+      "addressLocality": "Kurnool",
+      "addressRegion": "Andhra Pradesh",
+      "postalCode": "518467",
+      "addressCountry": "IN"
+    },
+    "url": "https://yourusername.github.io/eyecare",
+    "telephone": "+91-90000-00000",
+    "openingHours": "Mo-Su 09:00-20:00"
+  }
   </script>
 </body>
 </html>
