@@ -20,11 +20,11 @@
     a:focus-visible,button:focus-visible{outline:3px solid var(--brand2);outline-offset:2px;border-radius:12px}
     img{max-width:100%;height:auto;display:block;background:#e5eef4}
 
-    .container{max-width:1080px;margin:0 auto;padding:0 1rem}
+    .container{max-width:1080px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
 
     /* Header & Nav */
     header{position:sticky;top:0;background:#ffffffd9;backdrop-filter:blur(8px);border-bottom:1px solid #e5eef4;z-index:40}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;gap:.5rem}
+    .nav{position:relative;display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;gap:.5rem}
     .brand{display:flex;gap:.6rem;align-items:center;font-weight:800;white-space:nowrap}
     .logo{width:36px;height:36px;border-radius:50%;background:conic-gradient(from 0deg,var(--brand),var(--brand2))}
 
@@ -39,9 +39,19 @@
     .btn.secondary{background:#10b981}
     .btn.whatsapp{background:#3ddc84}
 
+    .actions{display:flex;gap:.75rem;flex-wrap:wrap}
+    .hero-actions{margin-top:1rem}
+    .cta-actions{margin-top:.75rem}
+    .doc-highlights{gap:.6rem;margin-top:.75rem}
+    .cta-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:1rem;align-items:center}
+    .chip{display:inline-flex;align-items:center;gap:.25rem;padding:.5rem .8rem;font-weight:800;border-radius:var(--radius);background:var(--card);border:1px solid #e5eef4;box-shadow:0 6px 18px rgba(15,23,42,.05)}
+    .timings-list{margin:.5rem 0 0 1rem;padding:0;list-style:disc}
+    .contact-note{margin:.25rem 0 0}
+    .map-link{margin-top:1rem}
+
     /* Hero */
     .hero{position:relative;overflow:hidden}
-    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem;align-items:center;padding:2rem 0}
+    .hero-inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:1.25rem;align-items:center;padding:2rem 0}
     .hero h1{font-size:clamp(1.9rem,4.6vw,3rem);margin:.25rem 0 .5rem}
     .hero p{color:var(--muted);font-size:1.05rem}
     .hero figure{margin:0;border-radius:22px;overflow:hidden;border:1px solid #e5eef4;box-shadow:0 10px 28px rgba(15,23,42,.08)}
@@ -55,7 +65,7 @@
     .eyebrow{font-size:.8rem;color:var(--brand2);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
     .muted{color:var(--muted)}
 
-    .doc{display:grid;grid-template-columns:.9fr 1.1fr;gap:1.25rem;align-items:center}
+    .doc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:1.25rem;align-items:center}
 
     /* Gallery: responsive masonry that collapses well on mobile */
     .gallery{columns:3 260px;column-gap:1rem}
@@ -65,6 +75,7 @@
     .cta{background:linear-gradient(120deg,#ecfeff,#f0f9ff)}
 
     footer{padding:2rem 0;border-top:1px solid #e5eef4}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.25rem}
 
     /* Hours grid utility (desktop two columns, mobile stack) */
     .cols-2{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
@@ -79,7 +90,10 @@
     /* Responsive breakpoints */
     @media (max-width: 900px){
       .hero-inner,.doc,.cols-2{grid-template-columns:1fr}
+      .hero figure{max-width:420px;margin:1rem auto 0}
       .grid-3{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .cta-grid{grid-template-columns:1fr}
       nav.menu{display:none;flex-direction:column;align-items:flex-start;background:#fff;border:1px solid #e5eef4;border-radius:14px;padding:.5rem;position:absolute;right:1rem;top:64px;box-shadow:0 10px 30px rgba(15,23,42,.12)}
       .hamburger{display:flex}
       .menu-toggle:checked ~ nav.menu{display:flex}
@@ -87,6 +101,11 @@
     @media (max-width: 640px){
       .grid-3{grid-template-columns:1fr}
       .brand span{font-size:1rem}
+      .hero-inner{text-align:center}
+      .hero-inner>div:first-child{display:flex;flex-direction:column;align-items:center}
+      .hero-inner>div:first-child .btn{justify-content:center}
+      .footer-grid{grid-template-columns:1fr;gap:1.5rem}
+      .cta-actions{justify-content:center}
     }
 
     /* Reduce motion for people who prefer it */
@@ -128,10 +147,10 @@
         <div>
           <div class="eyebrow">Trusted Eye Care in Kurnool</div>
           <h1>Sharper Vision, Healthier Eyes</h1>
-          <p>Complete eye examinations, spectacles & contact lenses, children’s eye care, cataract & LASIK counselling—by Dr. Dinesh Reddy.</p>
-          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem">
+          <p>Complete eye examinations, spectacles & contact lenses, paediatric eye care, cataract and refractive surgical solutions—by Dr. Dinesh Reddy.</p>
+          <div class="actions hero-actions">
             <a class="btn" href="#book" role="button" aria-label="Book appointment">Book Appointment</a>
-            <a class="btn secondary" href="tel:+919052386004" aria-label="Call clinic">Call Now</a>
+            <a class="btn secondary" href="tel:+919966656931" aria-label="Call clinic">Call Now</a>
           </div>
         </div>
         <figure>
@@ -144,12 +163,12 @@
     <section id="services" class="container" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title">Services</h2>
       <div class="grid grid-3">
-        <article class="card"><div class="body"><h3>Comprehensive Eye Exams</h3><p class="muted">Refraction, slit‑lamp, IOP, retina evaluation with modern diagnostics for adults & kids.</p></div></article>
-        <article class="card"><div class="body"><h3>Spectacles & Lenses</h3><p class="muted">Blue‑filter, progressive, anti‑glare lenses with stylish frames.</p></div></article>
-        <article class="card"><div class="body"><h3>Contact Lenses</h3><p class="muted">Daily/Monthly disposables, toric & multifocal lenses with personalized fitting.</p></div></article>
-        <article class="card"><div class="body"><h3>LASIK & Cataract Counselling</h3><p class="muted">Eligibility checks, second opinions, and pre/post‑op guidance with partner hospitals.</p></div></article>
-        <article class="card"><div class="body"><h3>Children’s Eye Care</h3><p class="muted">Amblyopia screening, myopia control plans, school vision tests.</p></div></article>
-        <article class="card"><div class="body"><h3>Dry Eye & Computer Vision</h3><p class="muted">Relief plans for screen fatigue—lubricants, warm compress routines, ergonomics.</p></div></article>
+        <article class="card"><div class="body"><h3>Comprehensive Eye Exams</h3><p class="muted">Detailed refraction, slit‑lamp, IOP and retinal evaluation for all age groups.</p></div></article>
+        <article class="card"><div class="body"><h3>Cataract Surgeries</h3><p class="muted">PHACO surgeon (topical anesthesia) for faster recovery and clearer vision.</p></div></article>
+        <article class="card"><div class="body"><h3>Refractive Procedures</h3><p class="muted">Custom LASIK, PRK & evaluation to reduce dependence on glasses or contacts.</p></div></article>
+        <article class="card"><div class="body"><h3>DCR & DCT</h3><p class="muted">Advanced tear duct surgeries to relieve watering eyes and infections.</p></div></article>
+        <article class="card"><div class="body"><h3>Laser Treatments</h3><p class="muted">Retinal & anterior segment lasers tailored to diabetic and glaucoma care.</p></div></article>
+        <article class="card"><div class="body"><h3>Intravitreal Injections</h3><p class="muted">Targeted therapy for diabetic macular edema and retinal vascular conditions.</p></div></article>
       </div>
     </section>
 
@@ -162,10 +181,10 @@
         <div class="eyebrow">Meet your doctor</div>
         <h2 id="doctor-title" class="section-title">Dr. Dinesh Reddy — MBBS, MS (Ophthalmology), FICS</h2>
         <p class="muted">MS at Narayana Medical College, Nellore. Present Assistant Professor at Viswabharathi Medical College, Kurnool. Compassionate comprehensive eye care for all ages.</p>
-        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.75rem">
-          <span class="card" style="padding:.5rem .8rem;font-weight:800">10k+ Patients</span>
-          <span class="card" style="padding:.5rem .8rem;font-weight:800">1200+ Surgeries Assisted</span>
-          <span class="card" style="padding:.5rem .8rem;font-weight:800">4.9★ Reviews</span>
+        <div class="actions doc-highlights">
+          <span class="chip">10k+ Patients</span>
+          <span class="chip">1200+ Surgeries Assisted</span>
+          <span class="chip">4.9★ Reviews</span>
         </div>
       </div>
     </section>
@@ -188,17 +207,24 @@
         <!-- Left: hours + address -->
         <div class="card">
           <div class="body">
-            <h3>Business Hours</h3>
-            <p class="muted" aria-label="Open all week from 9 AM to 8 PM">Mon–Sun: 9:00 AM – 8:00 PM</p>
+            <h3>Clinic Timings</h3>
+            <ul class="muted timings-list">
+              <li><strong>Mon – Sat:</strong> 11:00 a.m. – 2:00 p.m. &amp; 6:00 p.m. – 9:00 p.m.</li>
+              <li><strong>Sunday:</strong> 11:00 a.m. – 2:00 p.m.</li>
+            </ul>
 
-            <h3 style="margin-top:1rem">Address</h3>
-            <p class="muted">
-              Plot No. 113, Shop No. 3, P.K.R. Complex,<br>
-              Ulchala - Kurnool Rd, Kurnool, Andhra Pradesh 518467
+            <h3 style="margin-top:1rem">Contact</h3>
+            <p class="muted contact-note">Phone: <a href="tel:+919966656931">9966656931</a></p>
+
+            <h3 style="margin-top:1rem">Optical Store</h3>
+            <p class="muted contact-note"><strong>Prince Opticals</strong><br>
+              S.No. 5, S.V.S.R. Complex,<br>
+              Beside Reliance Petrol Pump,<br>
+              Nandyal Road, Kurnool (A.P.)
             </p>
 
-            <p>
-              <a class="btn" href="https://maps.google.com/?q=Plot%20No.%20113%2C%20Shop%20No.%203%2C%20P.K.R.%20Complex%2C%20Ulchala%20-%20Kurnool%20Rd%2C%20Kurnool%2C%20Andhra%20Pradesh%20518467"
+            <p class="map-link">
+              <a class="btn" href="https://maps.google.com/?q=S.No.%205%2C%20S.V.S.R.%20Complex%2C%20Beside%20Reliance%20Petrol%20Pump%2C%20Nandyal%20Road%2C%20Kurnool"
                  target="_blank" rel="noopener" aria-label="Open address in Google Maps">📍 Open in Google Maps</a>
             </p>
           </div>
@@ -209,8 +235,8 @@
           <div class="body" style="padding:0;">
             <div class="ratio" style="overflow:hidden;border-radius:12px">
               <iframe
-                title="Map to EyeCare Clinic"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61434.88121944678!2d77.88723596336416!3d15.768054712585892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb67434deff1bf9%3A0xad0861e5efac8bc!2sViswabharathi%20Medical%20College!5e0!3m2!1sen!2sin!4v1761669602458!5m2!1sen!2sin"
+                title="Map to Prince Opticals"
+                src="https://www.google.com/maps?q=S.No.%205%2C%20S.V.S.R.%20Complex%2C%20Beside%20Reliance%20Petrol%20Pump%2C%20Nandyal%20Road%2C%20Kurnool&output=embed"
                 style="border:0;position:absolute;inset:0;width:100%;height:100%"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -224,15 +250,15 @@
 
     <!-- BOOKING CTA -->
     <section id="book" class="cta" aria-labelledby="book-title">
-      <div class="container" style="display:grid;grid-template-columns:1.4fr .6fr;gap:1rem;align-items:center">
+      <div class="container cta-grid">
         <div>
           <div class="eyebrow">Book your visit</div>
           <h2 id="book-title" class="section-title">Ready to see better?</h2>
           <p class="muted">Tap a button to schedule by call or WhatsApp. You can also email us with your preferred date & time.</p>
-          <div style="display:flex;gap:.75rem;flex-wrap:wrap">
-            <a class="btn" href="tel:+919052386004">📞 Call Now</a>
-            <a class="btn whatsapp" href="https://wa.me/919052386004?text=Hi%20Dr.%20Dinesh%20Reddy%2C%20I%27d%20like%20to%20book%20an%20appointment">💬 WhatsApp</a>
-            <a class="btn secondary" href="mailto:hello@eyecareclinic.example?subject=Appointment%20Request&body=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20on%20[date]%20at%20[time].">✉️ Email</a>
+          <div class="actions cta-actions">
+            <a class="btn" href="tel:+919966656931">📞 Call Now</a>
+            <a class="btn whatsapp" href="https://wa.me/919966656931?text=Hi%20Dr.%20Dinesh%20Reddy%2C%20I%27d%20like%20to%20book%20an%20appointment">💬 WhatsApp</a>
+            <a class="btn secondary" href="mailto:dineshreddy02544@gmail.com?subject=Appointment%20Request&body=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment%20on%20[date]%20at%20[time].">✉️ Email</a>
           </div>
         </div>
         <div class="card"><div class="body">
@@ -248,9 +274,9 @@
   </main>
 
   <footer id="contact">
-    <div class="container" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.25rem">
+    <div class="container footer-grid">
       <div><div class="brand" style="margin-bottom:.5rem"><div class="logo" aria-hidden="true"></div><span>EyeCare Clinic</span></div><p class="muted">Holistic vision care for families—exam, lenses, paediatric vision, and surgical counselling.</p></div>
-      <div><h4>Contact</h4><p class="muted"><strong>Phone:</strong> <a href="tel:+919052386004">+91 90523 86004</a><br><strong>Email:</strong> <a href="mailto:hello@eyecareclinic.example">dineshreddy02544@gmail.com</a></p></div>
+      <div><h4>Contact</h4><p class="muted"><strong>Phone:</strong> <a href="tel:+919966656931">9966656931</a><br><strong>Email:</strong> <a href="mailto:dineshreddy02544@gmail.com">dineshreddy02544@gmail.com</a></p></div>
       <div><h4>Follow</h4><p class="muted"><a href="#">Instagram</a> • <a href="#">Facebook</a> • <a href="#">Google Reviews</a></p></div>
     </div>
     <div class="container" style="margin-top:1rem"><p class="muted">© <span id="year"></span> EyeCare Clinic — Dr. Dinesh Reddy. All rights reserved.</p></div>
@@ -281,20 +307,34 @@
     "image": ["images/dr-dinesh-1.jpg"],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Plot No. 113, Shop No. 3, P.K.R. Complex, Ulchala - Kurnool Rd",
+      "streetAddress": "S.No. 5, S.V.S.R. Complex, Beside Reliance Petrol Pump, Nandyal Road",
       "addressLocality": "Kurnool",
       "addressRegion": "Andhra Pradesh",
-      "postalCode": "518467",
+      "postalCode": "518001",
       "addressCountry": "IN"
     },
     "url": "https://pandureddy0254.github.io/dinesh-reddy-website/",
-    "telephone": "+91-90523-86004",
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      "opens": "09:00",
-      "closes": "20:00"
-    }]
+    "telephone": "+91-99666-56931",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "11:00",
+        "closes": "14:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "18:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "11:00",
+        "closes": "14:00"
+      }
+    ]
   }
   </script>
 </body>
